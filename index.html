@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natalias Dashboard</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="header">
+        <div class="clock-date">
+          <span id="clock">--:--</span>
+          <span id="date">Datum</span>
+        </div>
+        <h1 id="dashboard-title" contenteditable="true">Natalias Dashboard</h1>
+      </div>
+
+      <div class="content">
+        <!-- Snabblänkar -->
+        <div class="card">
+          <h2>Snabblänkar</h2>
+          <ul id="link-list"></ul>
+          <form id="link-form">
+            <input
+              type="text"
+              id="link-title"
+              placeholder="Länkens namn"
+              required
+            />
+            <input
+              type="url"
+              id="link-url"
+              placeholder="https://..."
+              required
+            />
+            <button type="submit">➕ Lägg till länk</button>
+          </form>
+        </div>
+
+        <!-- Väder -->
+        <div class="card">
+          <h2>Vädret i Bollebygd</h2>
+          <div id="vader">Laddar väder...</div>
+        </div>
+
+        <!-- Meme -->
+        <div class="card">
+          <h2>Slumpmässig meme</h2>
+          <img id="meme-img" src="" alt="Meme" />
+          <button onclick="hamtaMeme()">Hämta Nytt Meme</button>
+        </div>
+
+        <!-- Anteckningar -->
+        <div class="card">
+          <h2>Anteckningar</h2>
+          <textarea id="notes" placeholder="Skriv här..."></textarea>
+        </div>
+      </div>
+
+      <button id="background-btn">Slumpa ny bakgrund</button>
+    </div>
+
+    <script src="/JS/script.js"></script>
+  </body>
+</html>

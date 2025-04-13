@@ -1,0 +1,150 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f5f5;
+    color: #111;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dashboard {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .header {
+    text-align: center;
+  }
+  
+  #dashboard-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    outline: none;
+    cursor: text;
+    margin-top: 0.5rem;
+  }
+  
+  .clock-date {
+    background: #e0e0e0;
+    border-radius: 12px;
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    font-weight: bold;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background: #e0e0e0;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 200px;
+  }
+  
+  .card h2 {
+    margin-bottom: 0.75rem;
+  }
+  
+  #link-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #link-list li {
+    background: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+  
+  #link-list img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #link-list a {
+    text-decoration: none;
+    color: black;
+    flex-grow: 1;
+    margin-left: 0.5rem;
+  }
+  
+  #link-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  #link-form input,
+  #link-form button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  #link-form input {
+    background-color: white;
+  }
+  
+  #link-form button {
+    background-color: #c8c8c8;
+    cursor: pointer;
+  }
+  
+  #vader {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 8px;
+    padding: 2.1rem;
+  }
+
+  #quote {
+    font-style: italic;
+  }
+  
+  #notes {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    padding: 1rem;
+    resize: vertical;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  
+  #background-btn {
+    align-self: center;
+    background: #ccc;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
