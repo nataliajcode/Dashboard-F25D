@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,8 +6,8 @@
   }
   
   body {
-    font-family: "Segoe UI", sans-serif;
-    background-color: #f5f5f5;
+    font-family: "Roboto", sans-serif;
+    background-color: #bdbec0;
     color: #111;
     padding: 2rem;
     display: flex;
@@ -24,8 +24,25 @@
   
   .header {
     text-align: center;
+    margin-bottom: 4rem;
+    font-family: "Pacifico";
+    font-weight: 100;
+    letter-spacing: 5px;
   }
-  
+
+  .weather-box {
+    display: flex;
+    padding: 0.5rem;
+    margin-left: 27px;
+    background-color: #e0f7fa;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    justify-content: center;
+    width: 200px;
+    text-align: center;
+  }
+
+
   #dashboard-title {
     font-size: 2.5rem;
     font-weight: bold;
@@ -35,12 +52,14 @@
   }
   
   .clock-date {
-    background: #e0e0e0;
+    background: #dce0cd;
+    font-family: "Roboto", sans-serif;
     border-radius: 12px;
     display: inline-flex;
     padding: 0.5rem 1rem;
     gap: 1rem;
     font-weight: bold;
+    
   }
   
   .content {
@@ -50,7 +69,7 @@
   }
   
   .card {
-    background: #e0e0e0;
+    background: #dce0cd;
     border-radius: 16px;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -59,8 +78,33 @@
   
   .card h2 {
     margin-bottom: 0.75rem;
+    text-align: center;
   }
-  
+  #news-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#news-list li {
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+#news-list li:hover {
+  background: #eef3e3;
+}
+
+#news-list a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
   #link-list {
     list-style: none;
     display: flex;
@@ -86,7 +130,7 @@
   
   #link-list a {
     text-decoration: none;
-    color: black;
+    color: rgb(17, 17, 17);
     flex-grow: 1;
     margin-left: 0.5rem;
   }
@@ -110,7 +154,7 @@
   }
   
   #link-form button {
-    background-color: #c8c8c8;
+    background-color: #dce0cd;
     cursor: pointer;
   }
   
@@ -140,11 +184,48 @@
   
   #background-btn {
     align-self: center;
-    background: #ccc;
-    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, #d3c7c7, #bbcee3);
+    padding: 1.0rem 1.5rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
+    margin-top: 6.5rem;
   }
   
+  @media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #dashboard-title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .clock-date {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .weather-box {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #background-btn {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  #link-form input,
+  #link-form button {
+    font-size: 0.9rem;
+  }
+}

@@ -41,7 +41,7 @@ function updateClock() {
       a.target = "_blank";
   
       const delBtn = document.createElement("button");
-      delBtn.textContent = "❌";
+      delBtn.textContent = "🗑️";
       delBtn.onclick = () => {
         links.splice(index, 1);
         localStorage.setItem("links", JSON.stringify(links));
@@ -117,36 +117,41 @@ function updateClock() {
 
   hamtaVader();
   
-  // CITAT 
-  async function hamtaMeme() {
-    try {
-      const response = await fetch("https://api.blademaker.tv/memes/random");
-      const data = await response.json();
-      
-      if (data.image) {
-        
-        document.getElementById("meme-img").src = data.image;
-        
-        localStorage.setItem("senasteMeme", data.image);
-      } else {
-        document.getElementById("meme-img").src = "https://via.placeholder.com/500?text=Inget+meme+hittades";
-      }
-    } catch (error) {
-      console.error("Fel vid hämtning av meme:", error);
-      document.getElementById("meme-img").src = "https://via.placeholder.com/500?text=Fel+vid+hämta+meme";
-    }
-  }
+ //NYHETER OM SPACE // Hämtar de 3 senaste artiklarna och uppdaterar varje timme //
+async function hamtaNyheter() {
+  const url =
+    "https://api.spaceflightnewsapi.net/v4/articles/?limit=3&ordering=-published_at";
 
-  function laddaSenasteMeme() {
-    const sparatMeme = localStorage.getItem("senasteMeme");
-    if (sparatMeme) {
-      document.getElementById("meme-img").src = sparatMeme;
-    } else {
-      hamtaMeme(); 
-    }
-  }
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error("Kunde inte hämta nyheter");
+    const data = await resp.json();
 
-  laddaSenasteMeme();
+    const listEl = document.getElementById("news-list");
+    listEl.innerHTML = "";
+
+    data.results.forEach((artikel) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+
+      a.href = artikel.url;
+      a.target = "_blank";
+      a.textContent =
+        `${new Date(artikel.published_at)
+          .toLocaleDateString("sv-SE")} – ${artikel.title}`;
+
+      li.appendChild(a);
+      listEl.appendChild(li);
+    });
+  } catch (error) {
+    document.getElementById("news-list").innerText =
+      "Fel vid hämtning av nyheter.";
+    console.error(error);
+  }
+}
+
+hamtaNyheter();                     
+setInterval(hamtaNyheter, 3600000); 
 
   // ANTECKNINGAR
   const notesEl = document.getElementById("notes");
